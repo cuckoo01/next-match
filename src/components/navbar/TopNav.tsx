@@ -29,9 +29,6 @@ export default function TopNav() {
             <NavLink href='/members' label='Matches'/>
             <NavLink href='/lists' label='Lists'/>
             <NavLink href='/messages' label='Messages'/>
-            {/* <NavbarItem isActive as={Link} href='/members'>Matches</NavbarItem>
-            <NavbarItem as={Link} href='/lists'>Lists</NavbarItem>
-            <NavbarItem as={Link} href='/messages'>Messages</NavbarItem> */}
         </NavbarContent>
         <NavbarContent justify='end'>
             <Button as={Link} href='/login' variant='bordered' className='text-white'>Login</Button>
