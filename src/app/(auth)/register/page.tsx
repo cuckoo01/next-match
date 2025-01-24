@@ -1,7 +1,13 @@
-import React from 'react'
+'use client'
 
-export default function RegisterPage() {
+import React from 'react'
+import RegisterForm from './RegisterForm'
+
+export default function LoginPage() {
   return (
-    <div>RegisterPage</div>
+        <div className='flex items-center justify-center vertical-center'>
+            <RegisterForm />
+        </div>
+        
   )
 }
