@@ -20,7 +20,7 @@ export default function LoginForm() {
     const onSubmit = async (data: LoginSchema) => {
         const result = await signInUser(data) 
         if (result.status === 'success') {
-            router.push('/members')
+            // router.push('/members')
             router.refresh()
         } else {
             toast.error(result.error as string)

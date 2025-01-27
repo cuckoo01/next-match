@@ -41,6 +41,7 @@ export async function signOutUser() {
 
 export async function registerUser(data: RegisterSchema): Promise<ActionResult<User>> {
     try {
+        // validate data using "zod"
         const validated = registerSchema.safeParse(data)
 
         if (!validated.success) {
@@ -57,6 +58,7 @@ export async function registerUser(data: RegisterSchema): Promise<ActionResult<U
 
         if (existingUser) return {status: 'error', error: 'User already exists'}
 
+        // create new user in db
         const user = await prisma.user.create({
             data: {
                 name,
