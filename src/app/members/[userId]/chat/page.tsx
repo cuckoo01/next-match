@@ -12,6 +12,5 @@ export default function ChatPage() {
             Chat goes here
         </CardBody>
     </>
-    
   )
 }
