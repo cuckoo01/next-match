@@ -7,9 +7,9 @@ import MemberSidebar from "../MemberSidebar";
 import CardForLayout from "../CardForLayout";
 
 export default async function Layout({ children, params }:
-    { children: ReactNode, params: { userId: string } }) {
-
-    const member = await getMemberByUserId(params.userId);
+    { children: ReactNode, params: Promise<{ userId: string }> }) {
+    const paramsObj = await params;
+    const member = await getMemberByUserId(paramsObj.userId);
     if (!member) return notFound();
 
     const basePath = `/members/${member.userId}`
