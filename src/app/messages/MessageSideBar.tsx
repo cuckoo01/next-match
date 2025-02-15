@@ -7,8 +7,12 @@ import React, { useState } from 'react'
 import clsx from 'clsx'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { Chip } from '@nextui-org/react'
+import useMessageStore from '@/hooks/useMessageStore'
 
 export default function MessageSideBar() {
+    const { unreadCount } = useMessageStore(state => ({
+        unreadCount: state.unreadCount
+    }))
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const router = useRouter();
@@ -40,7 +44,7 @@ export default function MessageSideBar() {
                     <Icon size={24} />
                     <div className='flex justify-between flex-grow'>
                         <span>{label}</span>
-                        {chip && <Chip>5</Chip>}
+                        {chip && key === 'inbox' && <Chip>{unreadCount}</Chip>}
                     </div>
                 </div>
             ))}
